@@ -20,7 +20,6 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
 
   if (!isLoaded || !user) {
     console.log("User not loaded or not logged in");
-    router.push('/sign-in')
     return;
   }
   if (!API_KEY) {
@@ -47,7 +46,11 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
 }, [user, isLoaded]);
 
 
-  if (!videoClient) return <Loader />;
+  if (!videoClient) 
+  {
+    
+    return <Loader />;
+  }
 
   return <StreamVideo client={videoClient}>{children}</StreamVideo>;
 };
